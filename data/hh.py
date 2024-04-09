@@ -18,14 +18,15 @@ class HH(Parser):
     Класс Parser является родительским классом, который вам необходимо реализовать
     """
 
-    def __init__(self, file_worker):
+    def __init__(self, file_worker) -> None:
         self.url = 'https://api.hh.ru/vacancies'
         self.headers = {'User-Agent': 'HH-User-Agent'}
         self.params = {'text': '', 'page': 0, 'per_page': 10}
         self.vacancies = []
         super().__init__(file_worker)
 
-    def load_vacancies(self, keyword):
+    def load_vacancies(self, keyword: str) -> None:
+        """Функция запрашивает по API вакансии и сохраняет их в self.vacancies атрибут"""
         self.params['text'] = keyword
         while self.params.get('page') != 20:
             response = requests.get(self.url, headers=self.headers, params=self.params)
