@@ -1,4 +1,4 @@
-from data.hh import HH, Parser
+from src.hh import HH, Parser
 
 
 class VacancyWrongTypeException(Exception):
@@ -57,9 +57,4 @@ class Vacancy(HH):
         raise VacancyWrongTypeException(type(self).__name__, type(other).__name__)
 
 
-h = HH('inquiry')
-h.load_vacancies('Python-developer')
-with open(h.file_worker, mode='w', encoding='utf-8') as f:
-    for i, x in enumerate(h.vacancies, 1):
-        f.write(str(i) + str(x))
-        # f.write(str(i) + str(Vacancy(**x)))
+
