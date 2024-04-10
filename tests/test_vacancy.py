@@ -1,4 +1,4 @@
-from data.vacancy import Vacancy
+from src.vacancy import Vacancy
 from tests.conftest import get_dictionary
 
 
