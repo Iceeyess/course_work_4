@@ -11,6 +11,11 @@ class Parser(ABC):
     def load_vacancies(self):
         pass
 
+    @staticmethod
+    @abstractmethod
+    def get_city_id(url: str, city: str):
+        pass
+
 
 class HH(Parser):
     """
@@ -33,4 +38,24 @@ class HH(Parser):
             vacancies = response.json()['items']
             self.vacancies.extend(vacancies)
             self.params['page'] += 1
+
+    @staticmethod
+    def get_city_id(url: str, city: str) -> str:
+        """Метод парсит все населенные пункты hh по API и возвращает id города
+        Константа url приходит из модуля констант(links_constants)"""
+
+        common_cities_dict = requests.get(url).json()
+        cities_dictionary = {}
+        for d_country in common_cities_dict:
+            if not d_country['areas']:
+                cities_dictionary.setdefault(d_country['name'], int(d_country['id']))
+            for d_area in d_country['areas']:
+                if not d_area['areas']:
+                    cities_dictionary.setdefault(d_area['name'], int(d_area['id']))
+                for d_city in d_area['areas']:
+                    if not d_city['areas']:
+                        cities_dictionary.setdefault(d_city['name'], int(d_city['id']))
+                    for d in d_city['areas']:
+                        cities_dictionary.setdefault(d['name'], int(d['id']))
+        return cities_dictionary.get(city)
 
