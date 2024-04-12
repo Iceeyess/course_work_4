@@ -1,6 +1,5 @@
 from src.hh import HH
 from src.vacancy import Vacancy
-from src.city import City
 import os
 # Константы:
 from src.links_constants import *
@@ -14,13 +13,13 @@ def data_insertion():
     print(f"Уважаемый пользователь, представляем программу запроса свежих вакансий через API по {hh_API_vacancies}")
     print("Введите поисковые критерии:")
 
-    # Объект класса city, вводим город, пока не найдем city_id по 'https://api.hh.ru/areas'
-    city_id = City(hh_API_cities, input("Введите город, в котором хотите найти вакансию.\n").replace(
-        ' ', '')).get_city_id()
+    # Объект класса city, вводим город, пока не найдем city_id по 'https://api.hh.ru/areas' это константа
+    city_id = HH.get_city_id(HH_API_CITIES, input("Введите город, в котором хотите найти вакансию.\n").replace(
+        ' ', ''))
     while not city_id:
         city = input(f"Извините, условие строгое. Вы должны ввести город, в котором хотите найти вакансии:\n").replace(
             ' ', '')
-        city_id = City(hh_API_cities, city).get_city_id()
+        city_id = HH.get_city_id(HH_API_CITIES, city)
 
     salary = int(input(
         "Введите сумму ожидаемой заработной платы.\n"))
