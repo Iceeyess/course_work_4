@@ -38,9 +38,8 @@ def data_insertion():
     h = HH(path_, hh_API_vacancies, HEADERS, params)
     h.load_vacancies(vacancy, pages)
     json_m = JSONManagement(h)
-    json_m.save_to_file_separately()
     json_m.sort_by_salary()
-    json_m.get_top(top_n_vacancies)
+    # json_m.get_top(top_n_vacancies)
 
 
 if __name__ == '__main__':
