@@ -22,8 +22,12 @@ class HH(Parser):
     Класс для работы с API HeadHunter
     Класс Parser является родительским классом, который вам необходимо реализовать
     """
+    file_worker: str # название файла для сохранения данных
+    url: str # Ссылка API для получения списка вакансий
+    headers: dict # для аутентификации при запросе API это системне константы
+    params: dict # Параметры get запроса
 
-    def __init__(self, file_worker, url, headers, params) -> None:
+    def __init__(self, file_worker: str, url: str, headers: dict, params: dict) -> None:
         self.url = url
         self.headers = headers
         self.params = params
@@ -58,4 +62,3 @@ class HH(Parser):
                     for d in d_city['areas']:
                         cities_dictionary.setdefault(d['name'], int(d['id']))
         return cities_dictionary.get(city)
-
