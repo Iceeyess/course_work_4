@@ -21,16 +21,21 @@ class Vacancy(HH):
     index = 0
 
     def __init__(self, *args, **kwargs) -> None:
-        self.index += 1
-        Vacancy.index = self.index
+        # Если индекс приходит от class json_management, то оставляем старый, в противном случае, генерируем новый.
+        if kwargs.get('index'):
+            self.index = kwargs['index']
+        else:
+            self.index += 1
+            Vacancy.index = self.index
+
         self.name = kwargs['name']
         self.alternate_url = kwargs['alternate_url']
         # Валидация данных о зарплате, если приходит объект HH, то он несёт, или словарь или False, если пришел
-        # тип данных int, float, то пришел объект vacancy.
-        if type(kwargs['salary']) is dict:
+        # тип данных int, float, то пришел объект vacancy. Очень много условий, поэтому применил тернарный оператор
+        if type(kwargs['salary']) is dict or type(kwargs['salary']) is False:
             self.__salary = round(self.get_salary_validator(**kwargs['salary'] if kwargs['salary'] else {}), 2)
         else:
-            self.__salary = round(kwargs.get('salary', 0), 0)
+            self.__salary = kwargs['salary'] if kwargs['salary'] else 0
         self.employer = kwargs['employer']['name'] if type(kwargs['employer']) is dict else kwargs['employer']
         self.city = kwargs['area']['name'] if kwargs.get('area') else kwargs['city']
         self.city_id = kwargs['area']['id'] if kwargs.get('area') else kwargs['city_id']
@@ -57,7 +62,7 @@ class Vacancy(HH):
         return self.__salary
 
     def __str__(self):
-        tuple_ = (f"Название вакансии - {self.name}", f"Ссылка на вакансию - {self.alternate_url}",
+        tuple_ = (f"Порядковый номер выгруженной вакансии - {self.index}", f"Название вакансии - {self.name}", f"Ссылка на вакансию - {self.alternate_url}",
         f"Заработная плата - {self.salary}", f"Работодатель - {self.employer}", f"Город - {self.city}")
         glue_string = str()
         for str_ in tuple_:
@@ -69,13 +74,24 @@ class Vacancy(HH):
         return f"Должность: {self.name}, зарплата: {self.salary}"
 
     def __gt__(self, other):
-        return self.salary > other.salary
+        try:
+            return self.salary > other.salary
+        except TypeError:
+            raise VacancyWrongTypeException(self, other)
 
     def __lt__(self, other):
-        return self.salary < other.salary
+        try:
+            return self.salary < other.salary
+        except TypeError:
+            raise VacancyWrongTypeException(self, other)
+
 
     def __eq__(self, other):
-        return self.salary == other.salary
+        try:
+            return self.salary == other.salary
+        except TypeError:
+            raise VacancyWrongTypeException(self, other)
+
 
     @property
     def get_self_dict(self):

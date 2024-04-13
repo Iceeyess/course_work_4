@@ -31,7 +31,7 @@ def data_insertion():
     does_show_salary_only = input(
         "Необходимо ли показывать только вакансии с указанной заработной платой? Введите 'Да' или 'Нет'.\n").title()
     does_show_salary_only_dict = {'Да': True, 'Нет': False}
-    is_only_included_salary = does_show_salary_only_dict[does_show_salary_only]
+    is_only_included_salary = does_show_salary_only_dict.get(does_show_salary_only)
     params = {'text': '', 'page': 0, 'per_page': vacancies_per_pages, 'area': city_id,
               'only_with_salary': is_only_included_salary, 'salary': salary}
 
@@ -39,7 +39,9 @@ def data_insertion():
     h.load_vacancies(vacancy, pages)
     json_m = JSONManagement(h)
     json_m.sort_by_salary()
-    # json_m.get_top(top_n_vacancies)
+    json_m.get_top(top_n_vacancies)
+    json_m.delete_vacancy()
+    json_m.get_top(top_n_vacancies)
 
 
 if __name__ == '__main__':
