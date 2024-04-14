@@ -11,6 +11,7 @@ def test_load_vacancies():
     v.params['page'] = 19
     v.load_vacancies('Python-разработчик', 20)
     assert len(v.vacancies) > 0
+    return v
 
 
 def test_get_city_id() -> None:

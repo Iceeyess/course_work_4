@@ -17,7 +17,7 @@ class ManageJSON(ABC):
             list_ = []
             for vacancy in self.dict_list:
                 list_.append(vacancy.get_self_dict)
-            s = json.dumps(list_, ensure_ascii=False)
+            s = json.dumps(list_, ensure_ascii=False, indent=4)
             f.write(s)
 
     @abstractmethod
@@ -55,7 +55,7 @@ class JSONManagement(ManageJSON):
                 list_ = []
                 for vacancy in self.dict_list:
                     list_.append(vacancy.get_self_dict)
-                s = json.dumps(list_, ensure_ascii=False)
+                s = json.dumps(list_, ensure_ascii=False, indent=4)
                 file.write(s)
         return wrapper
 
