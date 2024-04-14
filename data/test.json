@@ -1,0 +1,182 @@
+[
+    {
+        "index": 1,
+        "name": "Python Developer",
+        "alternate_url": "https://hh.ru/vacancy/95207435",
+        "salary": 0,
+        "employer": "Аренадата Софтвер",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 2,
+        "name": "Разработчик на Python",
+        "alternate_url": "https://hh.ru/vacancy/96283776",
+        "salary": 200000,
+        "employer": "Национальный исследовательский университет Высшая школа экономики",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 3,
+        "name": "Python developer, remote",
+        "alternate_url": "https://hh.ru/vacancy/94996622",
+        "salary": 2350.0,
+        "employer": "DevCube",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 4,
+        "name": "Python Developer",
+        "alternate_url": "https://hh.ru/vacancy/96226463",
+        "salary": 0,
+        "employer": "НТР",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 5,
+        "name": "Python-разработчик (Backend)",
+        "alternate_url": "https://hh.ru/vacancy/95974823",
+        "salary": 200000,
+        "employer": "Корпорация ЗНАК",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 6,
+        "name": "Senior Backend Developer (Python)",
+        "alternate_url": "https://hh.ru/vacancy/96247511",
+        "salary": 4500.0,
+        "employer": "Reinvent Baltics",
+        "city": "Санкт-Петербург",
+        "city_id": "2"
+    },
+    {
+        "index": 7,
+        "name": "Python Developer Middle+/Senior",
+        "alternate_url": "https://hh.ru/vacancy/96180541",
+        "salary": 225000.0,
+        "employer": "Buyer",
+        "city": "Иннополис",
+        "city_id": "2734"
+    },
+    {
+        "index": 8,
+        "name": "Middle Python Developer (Rambler Media)",
+        "alternate_url": "https://hh.ru/vacancy/95148016",
+        "salary": 0,
+        "employer": "Rambler&Co",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 9,
+        "name": "Python разработчик",
+        "alternate_url": "https://hh.ru/vacancy/90496638",
+        "salary": 0,
+        "employer": "Тинькофф",
+        "city": "Краснодар",
+        "city_id": "53"
+    },
+    {
+        "index": 10,
+        "name": "Разработчик операций AI, Python/React (Удаленно) для меняющих профессию на разработчика",
+        "alternate_url": "https://hh.ru/vacancy/95632686",
+        "salary": 0,
+        "employer": "LATOKEN",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 11,
+        "name": "Junior / Middle Backend developer (python) в офис",
+        "alternate_url": "https://hh.ru/vacancy/96482959",
+        "salary": 0,
+        "employer": "Совкомбанк Технологии",
+        "city": "Красноярск",
+        "city_id": "54"
+    },
+    {
+        "index": 12,
+        "name": "Middle Python Developer",
+        "alternate_url": "https://hh.ru/vacancy/96095371",
+        "salary": 0,
+        "employer": "InformConsulting",
+        "city": "Алматы",
+        "city_id": "160"
+    },
+    {
+        "index": 13,
+        "name": "Разработчик Python",
+        "alternate_url": "https://hh.ru/vacancy/94747153",
+        "salary": 0,
+        "employer": "Тинькофф",
+        "city": "Уфа",
+        "city_id": "99"
+    },
+    {
+        "index": 14,
+        "name": "Python Developer в VK Рекламу",
+        "alternate_url": "https://hh.ru/vacancy/91996990",
+        "salary": 0,
+        "employer": "VK",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 15,
+        "name": "Senior Python Developer",
+        "alternate_url": "https://hh.ru/vacancy/95250821",
+        "salary": 350000,
+        "employer": "АйТиКвик",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 16,
+        "name": "Back-end разработчик Python, Django",
+        "alternate_url": "https://hh.ru/vacancy/95633823",
+        "salary": 70000.0,
+        "employer": "Alt.Point",
+        "city": "Челябинск",
+        "city_id": "104"
+    },
+    {
+        "index": 17,
+        "name": "Python разработчик (Middle+/Senior)",
+        "alternate_url": "https://hh.ru/vacancy/96805375",
+        "salary": 0,
+        "employer": "ПИК-специализированный застройщик",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 18,
+        "name": "Middle+ Python Developer",
+        "alternate_url": "https://hh.ru/vacancy/94974765",
+        "salary": 0,
+        "employer": "Go Ahead",
+        "city": "Москва",
+        "city_id": "1"
+    },
+    {
+        "index": 19,
+        "name": "Python Developer Middle+/Senior",
+        "alternate_url": "https://hh.ru/vacancy/96180539",
+        "salary": 225000.0,
+        "employer": "Buyer",
+        "city": "Санкт-Петербург",
+        "city_id": "2"
+    },
+    {
+        "index": 20,
+        "name": "Программист Python",
+        "alternate_url": "https://hh.ru/vacancy/92461761",
+        "salary": 0,
+        "employer": "Базальт СПО",
+        "city": "Обнинск",
+        "city_id": "301"
+    }
+]
