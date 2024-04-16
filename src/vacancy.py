@@ -1,4 +1,4 @@
-from src.hh import HH, Parser
+from src.hh import HH
 
 
 class VacancyWrongTypeException(Exception):
@@ -62,8 +62,9 @@ class Vacancy(HH):
         return self.__salary
 
     def __str__(self):
-        tuple_ = (f"Порядковый номер выгруженной вакансии - {self.index}", f"Название вакансии - {self.name}", f"Ссылка на вакансию - {self.alternate_url}",
-        f"Заработная плата - {self.salary}", f"Работодатель - {self.employer}", f"Город - {self.city}")
+        tuple_ = (f"Порядковый номер выгруженной вакансии - {self.index}", f"Название вакансии - "
+        f"{self.name}", f"Ссылка на вакансию - {self.alternate_url}", f"Заработная плата - {self.salary}",
+        f"Работодатель - {self.employer}", f"Город - {self.city}")
         glue_string = str()
         for str_ in tuple_:
             glue_string = glue_string + str_ + '\n'
@@ -85,13 +86,11 @@ class Vacancy(HH):
         except TypeError:
             raise VacancyWrongTypeException(self, other)
 
-
     def __eq__(self, other):
         try:
             return self.salary == other.salary
         except TypeError:
             raise VacancyWrongTypeException(self, other)
-
 
     @property
     def get_self_dict(self):
