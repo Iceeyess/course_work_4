@@ -1,5 +1,4 @@
 import pytest
-import requests, json
 from src.vacancy import Vacancy
 from src.json_management import JSONManagement
 import os

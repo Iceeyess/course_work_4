@@ -1,5 +1,6 @@
 from src.vacancy import Vacancy
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
 from src.hh import HH
 import json
 
