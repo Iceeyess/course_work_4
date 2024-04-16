@@ -10,16 +10,6 @@ class ManageJSON(ABC):
     Внимание! Работаем с методами, которые забирают данные из JSON-file и возвращают их обратно туда
     после всех действий. И что важно, что все действия производим не со словарями, а с ЭК класса Vacancy"""
 
-    def __init__(self, dict_list: [HH]) -> None:
-        # Инициализация объекта класса HH (список с типом классов вакансии) и сохранение в JSON
-        self.file_name = dict_list.file_worker
-        self.dict_list = [Vacancy(**_) for _ in dict_list.vacancies]
-        with open(self.file_name, mode='w', encoding='utf-8') as f:
-            list_ = []
-            for vacancy in self.dict_list:
-                list_.append(vacancy.get_self_dict)
-            s = json.dumps(list_, ensure_ascii=False, indent=4)
-            f.write(s)
 
     @abstractmethod
     def load_and_save_file(self):
@@ -40,9 +30,16 @@ class ManageJSON(ABC):
 
 class JSONManagement(ManageJSON):
     """Класс для управления данными, для записи, сортировки, обработки и """
-
     def __init__(self, dict_list: [HH]) -> None:
-        super().__init__(dict_list)
+        # Инициализация объекта класса HH (список с типом классов вакансии) и сохранение в JSON
+        self.file_name = dict_list.file_worker
+        self.dict_list = [Vacancy(**_) for _ in dict_list.vacancies]
+        with open(self.file_name, mode='w', encoding='utf-8') as f:
+            list_ = []
+            for vacancy in self.dict_list:
+                list_.append(vacancy.get_self_dict)
+            s = json.dumps(list_, ensure_ascii=False, indent=4)
+            f.write(s)
 
     def load_and_save_file(func):
         """Функция-декоратор читает файл, преобразует список в ЭК Vacancy, выполняет функцию func,

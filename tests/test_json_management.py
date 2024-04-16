@@ -4,14 +4,14 @@ from src.json_management import JSONManagement
 import os
 from tests.test_hh import test_load_vacancies
 
-
 s = os.path.join('data', 'test.json')
 
 
 @pytest.fixture
 def get_vacancies_list():
     attr_ = test_load_vacancies()
-    attr_.file_worker = os.path.join('/home/dima/PycharmProjects/course_work_4/course_work_4/data/test.json')
+    attr_.file_worker = os.path.join('test.json')
+    # attr_.file_worker = os.path.join('C:\\', 'Users', '60227416', 'PycharmProjects', 'course_work_4', 'data', 'test.json')
     return attr_
 
 
