@@ -1,6 +1,3 @@
-from src.hh import HH, Parser
-
-
 class VacancyWrongTypeException(Exception):
     """Класс для отображения ошибки, если сравниваются разные типы данных"""
 
@@ -14,20 +11,19 @@ class VacancyWrongTypeException(Exception):
                 f"Так нельзя, используйте только тип данных класса Vacancy")
 
 
-class Vacancy(HH):
+class Vacancy:
     """Для вакансий определения таких полей, как:
     название вакансии, ссылка на вакансию, зарплата, работодатель на hh.ru, город"""
-    __slots__ = ['name', 'alternate_url', '__salary', 'employer', 'city', 'city_id']
-    index = 0
+    __slots__ = ('index', 'name', 'alternate_url', '__salary', 'employer', 'city', 'city_id')
+    count = 0
 
     def __init__(self, *args, **kwargs) -> None:
         # Если индекс приходит от class json_management, то оставляем старый, в противном случае, генерируем новый.
         if kwargs.get('index'):
             self.index = kwargs['index']
         else:
-            self.index += 1
-            Vacancy.index = self.index
-
+            self.index = Vacancy.count
+            Vacancy.count += 1
         self.name = kwargs['name']
         self.alternate_url = kwargs['alternate_url']
         # Валидация данных о зарплате, если приходит объект HH, то он несёт, или словарь или False, если пришел
@@ -62,8 +58,9 @@ class Vacancy(HH):
         return self.__salary
 
     def __str__(self):
-        tuple_ = (f"Порядковый номер выгруженной вакансии - {self.index}", f"Название вакансии - {self.name}", f"Ссылка на вакансию - {self.alternate_url}",
-        f"Заработная плата - {self.salary}", f"Работодатель - {self.employer}", f"Город - {self.city}")
+        tuple_ = (f"Порядковый номер выгруженной вакансии - {self.index}", f"Название вакансии - "
+        f"{self.name}", f"Ссылка на вакансию - {self.alternate_url}", f"Заработная плата - {self.salary}",
+        f"Работодатель - {self.employer}", f"Город - {self.city}")
         glue_string = str()
         for str_ in tuple_:
             glue_string = glue_string + str_ + '\n'
@@ -85,13 +82,11 @@ class Vacancy(HH):
         except TypeError:
             raise VacancyWrongTypeException(self, other)
 
-
     def __eq__(self, other):
         try:
             return self.salary == other.salary
         except TypeError:
             raise VacancyWrongTypeException(self, other)
-
 
     @property
     def get_self_dict(self):
